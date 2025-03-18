@@ -7,7 +7,7 @@ A sample notebook and corresponding test is found at:
 The enivronment.yml defines an environment called "testable-nb-env", you may want to 
 rename it to something related to your project. 
 
-The conda environment can be created with: ```conda env create --name my_envname --file=environment.yml```
+The conda environment can be created with: ```conda env create --name testable-nb-env --file=environment.yml```
 
 The repo uses testbook and nbmake to test the notebook. Testbook is used to unit test individual
 functions in a notebook, whereas nbmake tests the entire notebook to test that it executed successfully.
