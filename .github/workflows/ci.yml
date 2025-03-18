@@ -1,0 +1,30 @@
+name: Run Notebook Tests with Conda
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Miniconda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        activate-environment: test-env
+        python-version: "3.12"
+        auto-update-conda: true
+
+    - name: Install dependencies
+      shell: bash -l {0}
+      run: |
+        conda env update --file environment.yml --name test-env
+
+    - name: Run tests
+      shell: bash -l {0}
+      run: |
+        conda activate test-env
+        pytest tests/
+        pytest --nbmake ./notebooks
