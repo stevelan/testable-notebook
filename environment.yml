@@ -8,3 +8,4 @@ dependencies:
   - nbmake
   - jupyter
   - jupyterlab
+  - jupyterlab-git
