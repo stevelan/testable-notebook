@@ -13,10 +13,14 @@ The repo uses testbook and nbmake to test the notebook. Testbook is used to unit
 functions in a notebook, whereas nbmake tests the entire notebook to test that it executed successfully.
 
 # To run tests
+```pytest --nbmake```
 
-To run both the unit tests, and a test of the entire notebook execute the following:
+To run just the unit tests:
+```pytest tests/```
 
-```pytest ./tests && pytest --nbmake ./notebooks/```
+To execute the notebook and check for failuers:
+```pytest --nbmake notebooks/```
+
 
 
 
