@@ -12,4 +12,4 @@ dependencies:
   - jupyterlab-git
   - rich
   - pip:
-      - -e ./src
+      - -e .

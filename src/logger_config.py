@@ -38,7 +38,7 @@ class _FileStrippingLogRender(LogRender):
             return renderable
 
 
-def get_nb_logger(level=log.INFO, dark_mode=True, name=None, min_width=120):
+def get_logger(name=None, level=log.INFO, dark_mode=True,  min_width=120):
     dark_console = Console(theme=solarized_dark_theme, width=shutil.get_terminal_size(fallback=(min_width, 24)).columns, force_jupyter=True)
     rich_handler = RichHandler(console=dark_console, rich_tracebacks=True) if dark_mode else RichHandler(rich_tracebacks=True)
     rich_handler._log_render = _FileStrippingLogRender()
@@ -49,7 +49,7 @@ def get_nb_logger(level=log.INFO, dark_mode=True, name=None, min_width=120):
     return log.getLogger(name)   
 
 def init_notebook(nb_name, log_level=log.INFO, dark_mode=True, min_width=120):
-    logger = get_nb_logger(level=log_level, dark_mode=dark_mode, min_width=min_width)
+    logger = get_logger(level=log_level, dark_mode=dark_mode, min_width=min_width)
     logger.info("Initializing notebook: " + nb_name)
     return logger
     
